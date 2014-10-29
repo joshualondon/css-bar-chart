@@ -1,14 +1,16 @@
 /**
 *	Clearfix
 */
-.cf:before, .cf:after {
-	content: "\0020";
-	display: block;
-	height: 0;
-	overflow: hidden;
+.clearfix {
+	&:before,
+	&:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear: both;
+	}
 }
-
-.cf:after { clear: both; }
 
 body {
 	font: 300 1em/1em "Lato", Helvetica, sans-serif;
@@ -24,22 +26,71 @@ h1 {
 }
 
 #wrap {
-
+	position: relative;
 }
 
 .chart-base {
-	background: #ececec;
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 0;
 	
 	li {
-		border-left: 1px solid #000;
+		border-left: 1px solid #999;
 		display: block;
 		float: left;
-		margin-right: -0px;
+		font-size: 90%;
+		margin-left: -10px;
+		//padding-left: 5px;
 		padding-top: 400px;
-		width: 9%-1px;
+		width: 10%;
 		
+		&:nth-child(10) {
+			width: 0;
+			margin-right: -10px;
+			background: #000;
+		}
+	}
+}
+
+.chart-data {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+	
+	li {
+		background: #ececec;
+		margin: 10px 0;
+		.clearfix;
+		
+		span {
+			display: block;
+			padding: 8px;
+			
+			&.bar {
+				float: left;
+			}
+			
+			&.charlie {
+				background: #77cca4;
+			}
+			
+			&.cindy {
+				background: #f0f0d9;
+			}
+			
+			&.percentage {
+				float: right;
+			}
+		}
 	}
 }

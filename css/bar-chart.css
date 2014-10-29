@@ -1,14 +1,12 @@
 /**
 *	Clearfix
 */
-.cf:before,
-.cf:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  overflow: hidden;
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
 }
-.cf:after {
+.clearfix:after {
   clear: both;
 }
 body {
@@ -22,18 +20,69 @@ h1 {
   font-weight: 100;
   text-transform: uppercase;
 }
+#wrap {
+  position: relative;
+}
 .chart-base {
-  background: #ececec;
   list-style: none;
   padding: 0;
   margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
 }
 .chart-base li {
-  border-left: 1px solid #000;
+  border-left: 1px solid #999;
   display: block;
   float: left;
-  margin-right: 0px;
+  font-size: 90%;
+  margin-left: -10px;
   padding-top: 400px;
-  width: 8%;
+  width: 10%;
+}
+.chart-base li:nth-child(10) {
+  width: 0;
+  margin-right: -10px;
+  background: #000;
+}
+.chart-data {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.chart-data li {
+  background: #ececec;
+  margin: 10px 0;
+}
+.chart-data li:before,
+.chart-data li:after {
+  content: "";
+  display: table;
+}
+.chart-data li:after {
+  clear: both;
+}
+.chart-data li span {
+  display: block;
+  padding: 8px;
+}
+.chart-data li span.bar {
+  float: left;
+}
+.chart-data li span.charlie {
+  background: #77cca4;
+}
+.chart-data li span.cindy {
+  background: #f0f0d9;
+}
+.chart-data li span.percentage {
+  float: right;
 }
 /*# sourceMappingURL=bar-chart.css.map */
