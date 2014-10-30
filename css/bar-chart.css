@@ -14,38 +14,62 @@ body {
   margin: 3%;
 }
 /**
-*	Basics
+*	Vars
 */
+/**
+*	Header
+*/
+header {
+  margin: 60px auto;
+  width: 500px;
+}
 h1 {
   font-weight: 100;
   text-transform: uppercase;
 }
+/**
+*	Page
+*/
 #wrap {
   position: relative;
+  width: 500px;
+  margin: 0 auto;
 }
+/**
+* Chart
+*/
 .chart-base {
+  border: 1px solid #f1f1f1;
   list-style: none;
   padding: 0;
   margin: 0;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 600px;
   z-index: 0;
 }
+.chart-base:before,
+.chart-base:after {
+  content: "";
+  display: table;
+}
+.chart-base:after {
+  clear: both;
+}
 .chart-base li {
-  border-left: 1px solid #999;
+  font-size: 90%;
   display: block;
   float: left;
-  font-size: 90%;
-  margin-left: -10px;
-  padding-top: 400px;
-  width: 10%;
+  margin: 0 0 20px 0;
+  width: 50px;
 }
-.chart-base li:nth-child(10) {
-  width: 0;
-  margin-right: -10px;
-  background: #000;
+.chart-base li:before {
+  border-right: 1px solid #999;
+  content: '';
+  display: block;
+  height: 400px;
+  width: 1px;
 }
 .chart-data {
   list-style: none;
@@ -54,7 +78,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 500px;
   z-index: 1;
 }
 .chart-data li {
